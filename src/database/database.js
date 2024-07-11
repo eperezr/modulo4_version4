@@ -16,7 +16,12 @@ exports.sequelize = new Sequelize(
         dialect : process.env.DB_DIALECT, // Dialecto
         port: process.env.DB_PORT, // Puerto
         logging: console.log, // Loguear consultas
-        ssl: true, // SSL
+         dialectOptions: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false,
+        }
+      }
     }
 );
 
